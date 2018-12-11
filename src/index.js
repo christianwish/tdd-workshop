@@ -1,12 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import $ from 'jquery';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const $form = $('form');
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const setForm = (status) => {
+    $form.removeClass(status);
+    setTimeout(() => $form.addClass(status), 0);
+};
+
+$form.on('submit', (event) => {
+    event.preventDefault();
+    setForm('invalid');
+});
