@@ -24,5 +24,5 @@ export const Move = ({ name, onClick, children }) => {
 };
 
 Move.propTypes = {
-    id: PropTypes.string,
+    name: PropTypes.string.isRequired,
 };
