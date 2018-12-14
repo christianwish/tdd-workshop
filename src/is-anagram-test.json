@@ -1,0 +1,5 @@
+{
+    "name": "isAnagram",
+    "input": ["", ""],
+    "output": false
+}

@@ -1,5 +1,6 @@
 import './index.css';
 import $ from 'jquery';
+import { isAnagram } from './is-anagram';
 
 const $form = $('form');
 const $inputs = $form.find('input');
@@ -13,9 +14,12 @@ $inputs.on('keydown', () => setForm(''));
 
 $form.on('submit', (event) => {
     event.preventDefault();
-    const isAnagram = false;
+    const data = $form
+        .serializeArray()
+        .filter(x => x.name !== 'email')
+        .map(x => x.value);
 
-    if (isAnagram) {
+    if (isAnagram(data)) {
         setForm('valid');
         return undefined;
     }
